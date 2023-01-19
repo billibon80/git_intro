@@ -1,3 +1,10 @@
+
+git config user.name "Guido van Rossum"
+git config user.email "guido@python.org"
+
+git config alias.history 'log --graph --oneline --decorate'
+
+
 Команда git reset откатывает все изменения в текущей ветке до указанной версии коммита. Так можно делать в той ветке, с которой работаете только вы и никто другой. При применении команды переписывается история ветки.
 При ресете передаётся один из трёх ключей:
 --soft — откатывает изменения до указанного комита. При этом изменения остаются в индексе, будто вы сделали git add, но не закоммитили их.
@@ -8,6 +15,7 @@
 Если вы заглянете в git log, то увидите, что ваш последний коммит пропал из списка. А git status покажет, что все файлы остались в индексе. Нужно убрать оттуда пустой файл reset_help.md. Для этого пригодится команда git rm с параметром --cached — удалить из индекса, но оставить в файловой системе.
 
 git rm --cached reset_help.md
+
 rm file.txt && git rm file.txt --cahched
 git rm file.txt
 git rm file.txt --force
@@ -25,3 +33,22 @@ app/ignored/           # Игнорировать папку
 *.py[cdo]              # Игнорировать все файлы с расширением pyc/pyd/pyo
 app/**/*.log           # Игнорировать log-файлы в app- и поддиректориях 
 !app/main.log          # ... кроме файла main.log 
+
+cd .. && rm -r git_intro # copy text
+git clone git@github.com:USERNAME/git_intro.git # clone data from repositori github
+
+git log --graph #### 
+
+git-flow ### https://habr.com/ru/company/flant/blog/491320/
+
+git checkout -b feature/branches # создать новую ветку
+
+Команда checkout используется в Git, чтобы:
+переключиться на произвольную существующую ветку (git checkout branch-name);
+создать новую ветку от текущей (git checkout -b new-branch-name).
+
+
+При команде checkout Git не даст переключиться на другую ветку, если в текущей есть незакоммиченные изменения. Если вы не хотите коммитить изменения, используйте команду git stash — она их спрячет. Позже изменения можно достать с помощью команд git pop или git apply.
+
+
+
